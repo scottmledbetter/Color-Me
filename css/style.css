@@ -15,6 +15,7 @@ html, body {
 #wrapper {
 	width: 100%;
 	height: 100%;
+	padding: 15px;
 	/* BG gradients for different browsers */
 	background: -moz-radial-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 100%);
 	background: -webkit-radial-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 100%);
@@ -31,7 +32,7 @@ html, body {
 }
 
 #color-search {
-	width: 400px;
+	max-width: 400px;
 	padding: 15px;
 	background-color: transparent;
 	border: 1px solid white;
