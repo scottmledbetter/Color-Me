@@ -1,10 +1,8 @@
-var colorInput = $('#color-search').val();
-var colorInput = '#f0f099';
-
-$(document).ready(function() {
+$('#color-search').on('input', function () {
+	var colorInput = $('#color-search').val();
+	console.log(colorInput);
     $('body').css('background-color', colorInput); 
 });
-
 
 var colors = {
     white: 'FFFFFF',
