@@ -1,8 +1,7 @@
 //Update BG Color with field input
 
 $('#color-search').on('input', function () {
-	var colorInput = $('#color-search').val();
-	console.log(colorInput);
+    var colorInput = $('#color-search').val();
     $('body').css('background-color', colorInput); 
 });
 
@@ -25,7 +24,17 @@ $('#color-search').blur( function() {
 var colors = {
     white: 'FFFFFF',
     black: '000000',
-    red: 'ff0000'
+    red: 'ff0000',
+    salmon: 'FF8C69'
 };
 
-console.log(Object.entries(colors));
+console.log(Object.entries(colors)[0]);
+console.log(Object.keys(colors)[0]);
+console.log(Object.values(colors)[0]);
+
+//Result display Hex or Name based on input
+
+$(document).ready(function() {
+    $('#color-description-container')
+    .append('<i><b>Pssst!</b></i> The HEX value for Salmon is #FF8C69');
+});
