@@ -1,13 +1,13 @@
-//Update BG Color with field input
+//Populate info line
+const placeHolder = 'Type in a color!';
 
-$('#color-search').on('input', function () {
-	const colorInput = $('#color-search').val();
-    $('body').css('background-color', colorInput); 
+$(document).ready(function() {
+    $('#color-description-container')
+    .append('<i><b>Pssst!</b></i> The HEX value for <b><span class="color-name">salmon</span></b> is <b><span class="text-hex">#FF8C69</span><b>');
+	$('#color-search').attr(placeHolder); 
 });
 
-//Toggle placeholder with focus
-
-const placeHolder = 'Type in a color!';
+//Remove placeholder when input selected
 
 $('#color-search').focus( function() {
 	$(this).removeAttr('placeholder');
@@ -17,28 +17,27 @@ $('#color-search').blur( function() {
 	$(this).attr('placeholder', placeHolder);
 });
 
-//Populate info line
-
-$(document).ready(function() {
-    $('#color-description-container')
-    .append('<i><b>Pssst!</b></i> The HEX value for Salmon is <span class="textHex">FF8C69</span>');
-});
-
-//Result display Hex or Name based on input
+//Changes via text input
 
 $('#color-search').on('input', function () {
 
-	 const colorInput = $('#color-search').val();
-	 const objectHexValue = Object.values(colors);
-	 const objectColorName = Object.keys(colors);
+	const colorInput = $('#color-search').val();
+	const objectHexValue = Object.values(colors);
+	const objectColorName = Object.keys(colors);
 
-	 for(i = 0; i < objectHexValue.length; i++) {
+	//Match color name and HEX value of matched color in info line
+	for(i = 0; i < objectHexValue.length; i++) {
 
-	 	if(colorInput.toUpperCase() === objectColorName[i].toUpperCase()) {
+		if(colorInput.toUpperCase().replace(/ /g,'') === objectColorName[i].toUpperCase().replace(/ /g,'')) {
 			const foundHexValue = objectHexValue[i];
-			$('.textHex').text(foundHexValue);
+			$('.text-hex').text(foundHexValue);
+			$('.color-name').text(objectColorName[i].replace( /([a-z])([A-Z])/g, "$1 $2").toLowerCase());
 		}
 
-	 }
+	}
+    
+	//Update BG Color with field input
+	$('body').css('background-color', colorInput.replace(/ /g,'')); 
 
 });
+
