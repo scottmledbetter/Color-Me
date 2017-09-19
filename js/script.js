@@ -33,7 +33,7 @@ $('#color-search').on('input', function () {
   for(i = 0; i < objectHexValue.length; i++) {
 
     if(colorInput.toUpperCase().replace(/ /g,'') === objectColorName[i].toUpperCase().replace(/ /g,'') 
-      || colorInput.toUpperCase().replace(/#/g,'') === objectHexValue[i].replace(/#/g,'')) {
+      || colorInput.toUpperCase().replace(/#/g,'') === objectHexValue[i].toUpperCase().replace(/#/g,'')) {
 
       const foundHexValue = objectHexValue[i];
       const colorName = '<span class="color-name"></span>';
