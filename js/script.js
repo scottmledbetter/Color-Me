@@ -20,7 +20,7 @@ $('#color-search').on('input', function () {
   
   $('#color-description-container').html('');
   $('#color-search').removeClass('bold')
-  $('body').css('background-color', 'gray'); 
+  $('html').css('background-color', 'gray'); 
   $('*').css('color', '#FFF');
   $('*').css('border-color', '#FFF');
 
@@ -47,7 +47,7 @@ $('#color-search').on('input', function () {
       $('.text-hex').text(foundHexValue);
       $('.color-name').text(objectColorName[i].replace( /([a-z])([A-Z])/g, "$1 $2").toLowerCase());
       $('#color-search').addClass('bold');
-      $('body').css('background-color', foundHexValue);
+      $('html').css('background-color', foundHexValue);
 
       $('*').css('color', getContrast50(foundHexValue.replace('#','')));
       $('*').css('border-color', getContrast50(foundHexValue.replace('#','')));
