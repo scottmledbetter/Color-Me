@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i");
+html {
+  background-color: gray;
+  background: -moz-radial-gradient(top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  background: -webkit-radial-gradient(top, transparent 0%, rgba(0, 0, 0, 0.3) 100);
+  background: radial-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  height: 100%;
+  width: 100%; }
+
+body {
+  height: 100%; }
+
+input[type=text] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+* {
+  font-family: "Lato", sans-serif; }
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  #wrapper #input-container {
+    height: 105px; }
+    #wrapper #input-container #color-search {
+      padding: 15px;
+      width: 280px;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 10px;
+      color: white;
+      font-size: 2rem;
+      font-weight: 300;
+      text-align: center; }
+    #wrapper #input-container input::placeholder {
+      color: white; }
+    #wrapper #input-container input:focus {
+      outline: none; }
+    #wrapper #input-container #color-description-container {
+      font-size: 1rem;
+      text-align: center;
+      color: white;
+      margin: 15px;
+      font-weight: 300; }
+    #wrapper #input-container .color-name, #wrapper #input-container .text-hex, #wrapper #input-container .bold {
+      font-weight: 700 !important; }
+    #wrapper #input-container .text-hex {
+      text-transform: uppercase; }

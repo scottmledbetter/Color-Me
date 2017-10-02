@@ -1,13 +1,5 @@
-# Color-Me
+# 🌈 Color-Me 🌈
 
-Simple web app to visualize web colors via HEX or name input.
+Shows you the color and HEX value of whatever color name you type in.
 
-Text input is compared across a big ol' JS object. If input matches one of the values, the background turns that color. 
-
-Text also turns bold, and you get the name/value pair for that color.
-
-H A R D M O D E : You can input HEX values as well, if you want to check if a color name exists for it.
-
-Credit to https://github.com/meodai/color-names for the color list.
-
-🌈 
+H A R D  M O D E: If you type in a HEX value that matches a color name, it will work as well!

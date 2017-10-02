@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <!--build:css css/styles.min.css-->
+  <link rel="stylesheet" href="css/styles.css">
+  <!--endbuild-->
+</head>
+
+<body>
+  
+  <div id='wrapper'>
+    <div id='input-container'>
+      <input 
+        type='text' 
+        id='color-search' 
+        placeholder="Type in a color!" 
+        onfocus="this.placeholder=''" 
+        onblur="this.placeholder='Type in a color!'" 
+      />
+      <div id='color-description-container'></div>
+    </div>
+  </div>
+  
+  <!--build:js js/main.min.js-->
+  <script src="js/lib/jquery-3.2.1.min.js"></script>
+  <script src="js/color_object.js"></script>
+  <script src="js/main.js"></script>
+  <!--endbuild-->
+</body>
+
+</html>
