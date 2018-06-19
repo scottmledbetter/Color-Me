@@ -61,7 +61,7 @@ input[type=text] {
       font-weight: $normal;
     }
 
-    .color-name, .text-hex, .bold {font-weight: $bold !important;}
+    .bold {font-weight: $bold !important;}
 
     .text-hex {text-transform: uppercase;}
 
