@@ -4,42 +4,44 @@ fetch('https://raw.githubusercontent.com/meodai/color-names/master/dist/colornam
   .then(raw => raw.json())
   .then(data => colorData.push(...data));
 
-//Changes via text input
-
+//Check for match every keystoke in input
 const input = document.querySelector('#color-search');
+const results = document.querySelector('#color-description-container');
+
 input.addEventListener('keyup', handleColors);
 
 function handleColors(e) {
 
-  //Reset field
-  $('#color-description-container').html('')
-  $('#color-search').removeClass('bold');
-  $('html').css('background-color', 'gray'); 
-  $('input').css({'color':'white','border-color':'white'});
+  //Reset
+  input.classList.remove('bold');
+  Object.assign(input.style,{color:"white",borderColor:"white"});
+  results.innerHTML = '';
+  document.body.style.backgroundColor = "gray";
 
-  //Establish variables
-  const inputValue = $('#color-search').val();
+  //Updates input variable with each run
+  const inputValue = input.value;
 
-  function getContrast50(hex){
-    return (parseInt(hex, 16) > 0xffffff/2) ? 'black':'white';
-  }
+  for (let color of colorData) {
 
-  //Match color name and HEX value of matched color in info line
-  for(let i = 0; i < colorData.length; i++) {
+  if (inputValue.toUpperCase().replace(/ /g,'') === color.name.toUpperCase().replace(/ /g,'') 
+    || inputValue.toUpperCase().replace(/#/g,'') === color.hex.toUpperCase().replace(/#/g,'')) {
+    
+    input.classList.add('bold');
+    results.innerHTML =
+      `The HEX value <span class="bold">${color.hex}</span> 
+      is <span class="bold">${color.name}</span>`;
+    document.body.style.backgroundColor = color.hex;
 
-  if(inputValue.toUpperCase().replace(/ /g,'') === colorData[i].name.toUpperCase().replace(/ /g,'') 
-    || inputValue.toUpperCase().replace(/#/g,'') === colorData[i].hex.toUpperCase().replace(/#/g,'')) {
-      
-    $('#color-description-container')
-      .append(`The HEX value <span class="bold">${colorData[i].hex}</span> is <span class="bold">${colorData[i].name}</span>`);
-    $('.text-hex').text(colorData[i].hex);
-    $('.color-name').text(colorData[i].name.replace( /([a-z])([A-Z])/g, "$1 $2").toLowerCase());
-    $('#color-search').addClass('bold');
-    $('html').css('background-color', colorData[i].hex);
+    //Changes input and text to white or black based on optimal contrast
+    
+    function getContrast50(hex){
+      return (parseInt(hex, 16) > 0xffffff/2) ? 'black':'white';
+    }
 
-    $('input, div').css('color', getContrast50(colorData[i].hex.replace('#','')));
-    $('input, div').css('border-color', getContrast50(colorData[i].hex.replace('#','')));
+    const inputParts = document.querySelectorAll('input, div');
+    inputParts.forEach(part => part.style.color = getContrast50(color.hex.replace('#','')));
+    inputParts.forEach(part => part.style.borderColor = getContrast50(color.hex.replace('#','')));
+
     } 
-
   }
 }
